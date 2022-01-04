@@ -32,8 +32,8 @@ runs:
       uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
       with:
         registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        #username: ${{ github.actor }}
+        #password: ${{ secrets.GITHUB_TOKEN }} # xxxd
 
     # Extract metadata (tags, labels) for Docker
     # https://github.com/docker/metadata-action
@@ -61,6 +61,7 @@ runs:
     # https://github.com/sigstore/cosign
     - name: Sign the published Docker image
       if: ${{ github.event_name != 'pull_request' }}
+      shell: bash
       env:
         COSIGN_EXPERIMENTAL: "true"
       # This step uses the identity token to provision an ephemeral certificate

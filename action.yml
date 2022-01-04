@@ -6,7 +6,7 @@ name: build
 description: 'Builds docker image and pushes to github registry'
 
 inputs:
-  regpw:
+  REGISTRY_TOKEN:
     description: 'for registry'
     required: true
 
@@ -38,7 +38,7 @@ runs:
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ inputs.regpw }}
+        password: ${{ inputs.REGISTRY_TOKEN }}
 
     # Extract metadata (tags, labels) for Docker
     # https://github.com/docker/metadata-action

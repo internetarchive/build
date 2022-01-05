@@ -4,6 +4,7 @@
 
 name: build
 description: 'Builds docker image and pushes to github registry'
+author: internetarchive
 
 inputs:
   REGISTRY_TOKEN:
